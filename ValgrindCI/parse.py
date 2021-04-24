@@ -108,8 +108,9 @@ class Frame:
                 if source_dir is not None:
                     filename = os.path.relpath(filename, source_dir)
                 return filename
-        except AttributeError:
             return None
+        except AttributeError:
+            print("no folder field")
 
 
 class ValgrindData:
