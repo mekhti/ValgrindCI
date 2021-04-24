@@ -73,7 +73,11 @@ class Error:
 
 class Frame:
     def __init__(self, tag):
-        self.obj = tag.find("obj").text
+        try:
+            self.obj = tag.find("obj").text
+        except AttributeError:
+            # print(tag)
+            return
         func = tag.find("fn")
         if func is not None:
             self.func = tag.find("fn").text
