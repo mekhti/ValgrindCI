@@ -50,7 +50,8 @@ class Error:
                 self.auxstack.append(Frame(frame))
 
     def __str__(self):
-        s = f"{self.what} (0x{self.unique:x})"
+        # s = f"{self.what} (0x{self.unique:x})"
+        s = ""
         for i, frame in enumerate(self.stack):
             s += f"\n#{i} => {frame}"
         if self.auxwhat is not None:
