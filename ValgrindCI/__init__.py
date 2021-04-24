@@ -1,6 +1,8 @@
 import argparse
 import sys
 
+import json
+
 from .parse import ValgrindData
 from .render import HTMLRenderer
 from .report import Report
@@ -52,6 +54,7 @@ def main():
 
     data = ValgrindData()
     data.parse(args.xml_file)
+    print(json.dumps(data))
     data.set_source_dir(args.source_dir)
 
     errors_total = data.get_num_errors()
