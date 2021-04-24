@@ -54,7 +54,7 @@ def main():
 
     data = ValgrindData()
     data.parse(args.xml_file)
-    print(json.dumps(data))
+    print(len(data))
     data.set_source_dir(args.source_dir)
 
     errors_total = data.get_num_errors()
