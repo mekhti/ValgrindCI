@@ -50,8 +50,7 @@ class Error:
                 self.auxstack.append(Frame(frame))
 
     def __str__(self):
-        # s = f"{self.what} (0x{self.unique:x})"
-        s = ""
+        s = f"{self.what} (0x{self.unique:x})"
         for i, frame in enumerate(self.stack):
             s += f"\n#{i} => {frame}"
         if self.auxwhat is not None:
@@ -77,7 +76,7 @@ class Frame:
         try:
             self.obj = tag.find("obj").text
         except AttributeError:
-            # print(tag)
+            self.obj = dict()
             return
         func = tag.find("fn")
         if func is not None:
