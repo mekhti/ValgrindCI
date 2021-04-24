@@ -76,8 +76,7 @@ class Frame:
         try:
             self.obj = tag.find("obj").text
         except AttributeError:
-            self.obj = dict()
-            return
+            print("no text field")
         func = tag.find("fn")
         if func is not None:
             self.func = tag.find("fn").text
