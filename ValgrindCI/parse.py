@@ -103,12 +103,14 @@ class Frame:
         return self.func
 
     def get_path(self, source_dir):
-        if self.folder is not None:
-            filename = os.path.join(self.folder, self.filename)
-            if source_dir is not None:
-                filename = os.path.relpath(filename, source_dir)
-            return filename
-        return None
+        try:
+            if self.folder is not None:
+                filename = os.path.join(self.folder, self.filename)
+                if source_dir is not None:
+                    filename = os.path.relpath(filename, source_dir)
+                return filename
+        except AttributeError:
+            return None
 
 
 class ValgrindData:
